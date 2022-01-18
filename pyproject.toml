@@ -11,3 +11,7 @@ version_files = ["setup.cfg:version", "src/__init__.py:__version__"]
 
 [tool.pytest.ini_options]
 testpaths = "tests"
+
+[tool.coverage.run]
+source = "src"
+omit = []
