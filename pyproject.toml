@@ -13,5 +13,5 @@ version_files = ["setup.cfg:version", "src/__init__.py:__version__"]
 testpaths = "tests"
 
 [tool.coverage.run]
-source = "src"
+source = ["src"]
 omit = []
