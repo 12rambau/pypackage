@@ -64,7 +64,8 @@ To use
 
 template the repository. 
 
-tweek some parameters 
+tweek some parameters:
+
 - change project name in the doc section 
 - set upt the github secretes for Pipy release 
 - change the src folder name 
