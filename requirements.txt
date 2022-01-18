@@ -1,0 +1,5 @@
+coverage
+pytest
+Sphinx
+sphinxcontrib-spelling
+sphinx-copybutton
