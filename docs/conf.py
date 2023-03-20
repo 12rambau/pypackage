@@ -25,7 +25,7 @@ extensions = [
     "sphinxcontrib.btn",
 ]
 exclude_patterns = ["**.ipynb_checkpoints"]
-
+templates_path = ["_template"]
 
 # -- Options for HTML output ---------------------------------------------------
 html_theme = "pydata_sphinx_theme"
@@ -37,6 +37,7 @@ html_theme_options = {
         "image_dark": "static_/logo_dark.png",
     },
     "use_edit_page_button": True,
+    "footer_end": ["theme-version", "python-lib"],
     "icon_links": [
         {
             "name": "GitHub",
