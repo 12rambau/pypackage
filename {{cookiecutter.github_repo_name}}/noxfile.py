@@ -46,5 +46,5 @@ def docs(session):
 def mypy(session):
     """Run a mypy check of the lib."""
     session.install(".[dev]")
-    test_files = session.posargs or ["src"]
+    test_files = session.posargs or ["{{ cookiecutter.project_slug }}"]
     session.run("mypy", *test_files)

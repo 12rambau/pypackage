@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: pip install mypy
       - name: run mypy checks
-        run: mypy src
+        run: mypy .
 
   docs:
     needs: [lint, mypy]
@@ -42,7 +42,7 @@ jobs:
         run: |
           pip install git+https://github.com/jenshnielsen/sphinx.git@fix_9884
           pip install git+https://github.com/12rambau/deprecated.git@master
-          sphinx-apidoc -o docs/api src
+          sphinx-apidoc -o docs/api {{ cookiecutter.project_slug }}
           sphinx-build -v -b html docs docs/_build/html -w warnings.txt
           python tests/check_warnings.py
 

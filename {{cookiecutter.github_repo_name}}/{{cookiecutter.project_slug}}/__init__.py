@@ -1,8 +1,8 @@
 """The init file of the package."""
 
 __version__ = "0.0.0"
-__author__ = "Pierrick Rambaud"
-__email__ = "pierrick.rambaud49@gmail.com"
+__author__ = "{{ cookiecutter.author }}"
+__email__ = "{{ cookiecutter.author_email }}"
 
 
 def hello_world() -> str:

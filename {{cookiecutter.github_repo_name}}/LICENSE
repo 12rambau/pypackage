@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2023 Rambaud Pierrick
+Copyright (c) {{ datetime.datetime.today().year }} {{ cookiecutter.author }}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

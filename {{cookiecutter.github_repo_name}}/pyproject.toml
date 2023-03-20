@@ -3,10 +3,10 @@ requires = ["setuptools>=61.2", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "src"
+name = "{{ cookiecutter.github_repo_name }}"
 version = "0.0.0"
-description = "the skeleton of a python lib with everything I like"
-keywords = ["skeleton", "Python"]
+description = "{{ cookiecutter.short_description }}"
+keywords = {{ cookiecutter.keywords }}
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -20,8 +20,8 @@ requires-python = ">=3.6.9"
 dependencies = []
 
 [[project.authors]]
-name = "Pierrick Rambaud"
-email = "pierrick.rambaud49@gmail.com"
+name = "{{ cookiecutter.author }}"
+email = "{{ cookiecutter.author_email }}"
 
 [project.license]
 text = "MIT"
@@ -31,7 +31,7 @@ file = "README.rst"
 content-type = "text/x-rst"
 
 [project.urls]
-Homepage = "https://github.com/12rambau/python_lib"
+Homepage = "https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.github_repo_name }}"
 
 [project.optional-dependencies]
 dev = ["pre-commit", "commitizen", "nox", "mypy"]
@@ -43,18 +43,16 @@ include-package-data = false
 license-files = ["LICENSE.txt"]
 
 [tool.setuptools.packages.find]
-include = ["src*"]
+include = ["{{ cookiecutter.project_slug }}*"]
 exclude = ["docs*", "tests*"]
 
 [tool.commitizen]
-changelog_file = "CHANGELOG.md"
-changelog_incremental = true
 tag_format = "v$major.$minor.$patch$prerelease"
-update_changelog_on_bump = true
+update_changelog_on_bump = false
 version = "0.0.0"
 version_files = [
     "pyproject.toml:version",
-    "src/__init__.py:__version__",
+    "{{ cookiecutter.project_slug }}/__init__.py:__version__",
     "docs/conf.py:release"
 ]
 

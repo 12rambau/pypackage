@@ -9,8 +9,8 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 from datetime import datetime
 
 # -- Project information -------------------------------------------------------
-project = "template"
-author = "Pierrick Rambaud"
+project = "{{ cookiecutter.project_name }}"
+author = "{{ cookiecutter.author }}"
 copyright = f"2020-{datetime.now().year}, {author}"
 release = "0.0.0"
 
@@ -32,7 +32,7 @@ html_theme = "pydata_sphinx_theme"
 html_static_path = ["_static"]
 html_theme_options = {
     "logo": {
-        "text": "src",
+        "text": project,
         "image_light": "_static/logo_light.png",
         "image_dark": "static_/logo_dark.png",
     },
@@ -41,20 +41,20 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/12rambau/sepal_ui",
+            "url": "https://github.com/{{ cookiecutter.github_user }}/{{cookiecutter.github_repo_name}}",
             "icon": "fa-brands fa-github",
         },
         {
             "name": "Pypi",
-            "url": "https://pypi.org/project/sepal-ui/",
+            "url": "https://pypi.org/project/{{ cookiecutter.github_repo_name }}/",
             "icon": "fa-brands fa-python",
         },
     ],
 }
 html_context = {
-    "github_user": "12rambau",
-    "github_repo": "python_lib",
-    "github_version": "main",
+    "github_user": "{{ cookiecutter.github_user }}",
+    "github_repo": "{{ cookiecutter.github_repo_name }}",
+    "github_version": "{{ cookiecutter.github_default_branch }}",
     "doc_path": "docs",
 }
 html_css_files = ["custom.css"]

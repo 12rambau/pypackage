@@ -5,7 +5,9 @@ from pathlib import Path
 
 
 def check_warnings(file: Path) -> int:
-    """Check the list of warnings produced by the GitHub CI tests raises errors if there are unexpected ones and/or if some are missing.
+    """Check the list of warnings produced by the CI tests.
+
+    Raises errors if there are unexpected ones and/or if some are missing.
 
     Args:
         file: the path to the generated warning.txt file from

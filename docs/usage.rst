@@ -1,4 +1,0 @@
-Usage
-=====
-
-**src** usage documentation.
