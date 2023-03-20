@@ -50,6 +50,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+.ruff_cache/
 
 # Translations
 *.mo
@@ -70,6 +71,7 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+docs/api/
 
 # PyBuilder
 target/
@@ -128,5 +130,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# system IDE 
+# system IDE
 .vscode/
+
+# image tmp file
+*Zone.Identifier

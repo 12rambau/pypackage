@@ -1,17 +1,87 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=61.2", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[commitizen]
+[project]
+name = "src"
+version = "0.0.0"
+description = "the skeleton of a python lib with everything I like"
+keywords = ["skeleton", "Python"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+requires-python = ">=3.6.9"
+dependencies = []
+
+[[project.authors]]
+name = "Pierrick Rambaud"
+email = "pierrick.rambaud49@gmail.com"
+
+[project.license]
+text = "MIT"
+
+[project.readme]
+file = "README.rst"
+content-type = "text/x-rst"
+
+[project.urls]
+Homepage = "https://github.com/12rambau/python_lib"
+
+[project.optional-dependencies]
+dev = ["pre-commit", "commitizen", "nox", "mypy"]
+test = ["pytest", "pytest-sugar", "pytest-cov", "pytest-deadfixtures"]
+doc = ["sphinx", "pydata-sphinx-theme", "sphinx-copybutton", "sphinx-design", "sphinx-icon", "sphinx-btn"]
+
+[tool.setuptools]
+include-package-data = false
+license-files = ["LICENSE.txt"]
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+exclude = ["docs*", "tests*"]
+
+[tool.commitizen]
 changelog_file = "CHANGELOG.md"
+changelog_incremental = true
 tag_format = "v$major.$minor.$patch$prerelease"
 update_changelog_on_bump = true
 version = "0.0.0"
-version_files = ["setup.cfg:version", "src/__init__.py:__version__"]
+version_files = [
+    "pyproject.toml:version",
+    "src/__init__.py:__version__",
+    "docs/conf.py:release"
+]
 
 [tool.pytest.ini_options]
 testpaths = "tests"
 
+[tool.ruff]
+ignore-init-module-imports = true
+fix = true
+select = ["E", "F", "W", "I", "D", "RUF"]
+ignore = ["E501"]  # line too long | Black take care of it
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
 [tool.coverage.run]
 source = ["src"]
-omit = []
+
+[tool.doc8]
+ignore = ["D001"] # we follow a 1 line = 1 paragraph style
+
+[tool.mypy]
+scripts_are_modules = true
+ignore_missing_imports = true
+install_types = true
+non_interactive = true
+warn_redundant_casts = true

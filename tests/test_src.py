@@ -1,9 +1,8 @@
+"""Test the src module."""
+
 import src
 
 
-class TestInit:
-    def test_hello_world(self):
-
-        assert src.hello_world() == "hello world !"
-
-        return
+def test_hello_world():
+    """Hello world test."""
+    assert src.hello_world() == "hello world !"
