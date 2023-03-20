@@ -29,7 +29,16 @@ def docs(session):
     session.install("git+https://github.com/jenshnielsen/sphinx.git@fix_9884")
     session.install("git+https://github.com/12rambau/deprecated.git@master")
     session.run("sphinx-apidoc", "-o", "docs/api", "src")
-    session.run("sphinx-build", "-v", "-b", "html", "docs", "docs/_build/html", "-w", "warnings.txt")
+    session.run(
+        "sphinx-build",
+        "-v",
+        "-b",
+        "html",
+        "docs",
+        "docs/_build/html",
+        "-w",
+        "warnings.txt",
+    )
     session.run("python", "tests/check_warnings.py")
 
 

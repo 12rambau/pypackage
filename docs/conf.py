@@ -8,7 +8,6 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 # -- Path setup ----------------------------------------------------------------
 from datetime import datetime
 
-
 # -- Project information -------------------------------------------------------
 project = "template"
 author = "Pierrick Rambaud"
@@ -58,11 +57,9 @@ html_context = {
     "doc_path": "docs",
 }
 html_css_files = ["custom.css"]
-html_favicon = '_static/favicon.svg'
+html_favicon = "_static/favicon.svg"
 
 # -- Options for autosummary/autodoc output ------------------------------------
 autosummary_generate = True
 autoclass_content = "init"
 autodoc_typehints = "description"
-
-

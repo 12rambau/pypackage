@@ -7,7 +7,6 @@ on:
   pull_request:
 
 jobs:
-
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -30,6 +29,7 @@ jobs:
         run: mypy src
 
   docs:
+    needs: [lint, mypy]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -47,15 +47,16 @@ jobs:
           python tests/check_warnings.py
 
   build:
+    needs: [lint, mypy]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
         include:
-          - os: macos-latest  # macos test
+          - os: macos-latest # macos test
             python-version: "3.11"
-          - os: windows-latest  # windows test
+          - os: windows-latest # windows test
             python-version: "3.11"
     steps:
       - uses: actions/checkout@v3
@@ -72,6 +73,7 @@ jobs:
         run: pytest --dead-fixtures
 
   coverage:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

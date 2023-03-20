@@ -1,1 +1,1 @@
-"""make test folder a package for coverage"""
+"""make test folder a package for coverage."""
