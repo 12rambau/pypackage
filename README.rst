@@ -15,4 +15,23 @@ The skeleton of a python lib embeding what I like:
 Usage
 -----
 
-WIP
+- Init an empty github repository with the slug name of your project (replace `` `` with ``-``)
+- Enable the repository on codecov and add a ``CODECOV_TOKEN`` github action env variable
+- start a new readthedocs project hooked to the repository. in the admin tick the "build on PR" option
+- in your local computer start the project by running: ``cookiecutter gh:12rambau/python_lib``. Set the same names as in the github repository.
+- go to the folder and init the git project ``git init``
+- run ``nox`` test
+- install pre-commits
+- push to distant repository
+
+  .. code-block:: console
+     git add .
+     git commit -m "build: initial commit"
+     git remote add origin git@github.com:12rambau/test-pierrick-lib.git
+     git branch -M main
+- modify the lib as you see fit
+- once you are ready to make a release
+- create a new project on pipy by running the first push yourself
+- update version with cz bump
+- add a token to a new github action env variable ``PYPI_PASSWORD``
+- start a new release in github and let actions do the rest
