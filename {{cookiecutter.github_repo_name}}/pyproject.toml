@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "{{ cookiecutter.github_repo_name }}"
 version = "0.0.0"
 description = "{{ cookiecutter.short_description }}"
-keywords = {{ cookiecutter.keywords }}
+keywords = ["skeleton", "Python"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -72,7 +72,7 @@ docstring-quotes = "double"
 convention = "google"
 
 [tool.coverage.run]
-source = ["src"]
+source = ["{{ cookiecutter.project_slug }}"]
 
 [tool.doc8]
 ignore = ["D001"] # we follow a 1 line = 1 paragraph style

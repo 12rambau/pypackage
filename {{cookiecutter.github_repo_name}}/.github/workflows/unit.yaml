@@ -46,6 +46,7 @@ jobs:
           sphinx-build -v -b html docs docs/_build/html -w warnings.txt
           python tests/check_warnings.py
 
+{% raw -%}
   build:
     needs: [lint, mypy]
     strategy:
@@ -91,3 +92,4 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true
+{% endraw %}

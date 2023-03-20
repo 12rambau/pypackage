@@ -42,3 +42,8 @@ Overview
 --------
 
 {{ cookiecutter.short_description }}
+
+Credits
+-------
+
+This package was created with `Cookiecutter <https://github.com/cookiecutter/cookiecutter>`__ and the `12rambau/python_lib <https://github.com/12rambau/python_lib>` project template.

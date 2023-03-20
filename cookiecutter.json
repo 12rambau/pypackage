@@ -6,6 +6,5 @@
     "github_user": "username",
     "github_default_branch": "main",
     "author_email": "author@domain.io",
-    "short_description": "the skeleton of a python lib with everything I like",
-    "keywords": ["skeleton", "Python"]
+    "short_description": "the skeleton of a python lib with everything I like"
 }

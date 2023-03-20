@@ -4,6 +4,7 @@ on:
   release:
     types: [created]
 
+{% raw -%}
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -25,3 +26,4 @@ jobs:
         run: |
           python -m build
           twine upload dist/*
+{% endraw %}

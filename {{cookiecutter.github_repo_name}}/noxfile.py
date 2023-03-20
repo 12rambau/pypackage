@@ -28,7 +28,7 @@ def docs(session):
     # patch version in nox instead of pyproject to avoid blocking conda releases
     session.install("git+https://github.com/jenshnielsen/sphinx.git@fix_9884")
     session.install("git+https://github.com/12rambau/deprecated.git@master")
-    session.run("sphinx-apidoc", "-o", "docs/api", "src")
+    session.run("sphinx-apidoc", "-o", "docs/api", "{{ cookiecutter.project_slug }}")
     session.run(
         "sphinx-build",
         "-v",

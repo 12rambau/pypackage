@@ -17,7 +17,7 @@ To run a specific nox automation process, use the following command:
 
 .. code-block:: console
 
-   nox -s {{session name}}
+   nox -s <session name>
 
 For example: ``nox -s test`` or ``nox -s docs``.
 
