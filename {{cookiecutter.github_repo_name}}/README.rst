@@ -18,6 +18,10 @@
    :target: https://github.com/prettier/prettier
    :alt: prettier badge
 
+.. image:: https://img.shields.io/badge/pre--commit-active-yellow?logo=pre-commit&logoColor=white
+    :target: https://pre-commit.com/
+    :alt: pre-commit
+
 .. image:: https://img.shields.io/pypi/v/{{ cookiecutter.github_repo_name }}?color=blue&logo=python&logoColor=white
     :target: https://pypi.org/project/{{ cookiecutter.github_repo_name }}/
     :alt: PyPI version
