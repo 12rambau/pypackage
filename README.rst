@@ -15,8 +15,8 @@ The skeleton of a python lib embeding what I like:
 Usage
 -----
 
-#.  Define a project name. It can be anything with any normal character (`w+<regexr.com/7aj95>`__) like "Python Project".
-#.  Init an empty github repository with the slug name of your project. A slug should only use lower case characters and replace all `` `` with ``-`` like "python-project".
+#.  Define a project name. It can be anything with any normal character (`w+ <regexr.com/7aj95>`__) like "Python Project".
+#.  Init an empty github repository with the slug name of your project. A slug should only use lower case characters and replace all spaces with ``-`` like "python-project".
 #.  Enable the repository on codecov and add a ``CODECOV_TOKEN`` github action env variable.
 #.  Start a new readthedocs project hooked to the repository. in the admin tick the "build on PR" option.
 #.  In your local computer start the project by running the following code. Set the same names as in the github repository.
