@@ -23,7 +23,7 @@ Usage
 
     .. code-block:: console
 
-        cookiecutter gh:12rambau/python_lib
+        cookiecutter gh:12rambau/pypackage
 
 #.  Go to the folder and init the git project:
 
