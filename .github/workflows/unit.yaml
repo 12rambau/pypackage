@@ -27,6 +27,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: pip install pytest cookiecutter nox pre-commit pytest-cookies
+      - name: update dependencies for windows
+        # the default pytest-cookies is currently broken on windows
+        # https://github.com/hackebrot/pytest-cookies/issues/41#issuecomment-1316992381
+        if: matrix.os == 'windows-latest'
+        run: pip install git+https://github.com/jamesmyatt/pytest-cookies@bugfix/62#egg=pytest-cookies
       - name: test the repository
         run: pytest --color=yes tests
 
