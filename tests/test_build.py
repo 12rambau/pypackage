@@ -17,7 +17,8 @@ def test_build_default(cookies: Cookies) -> None:
     assert result.project_path.is_dir()
 
     # init git to make pre-commit checks work
-    assert subprocess.check_call(["git", "init"], cwd=result.project_path) == 0
+    subprocess.check_call(["git", "config", "--global", "init.defaultBranch", "main"])
+    subprocess.check_call(["git", "init"], cwd=result.project_path)
 
     # nox check
     assert subprocess.check_call(["nox"], cwd=result.project_path) == 0
