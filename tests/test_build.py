@@ -1,6 +1,7 @@
 from pytest_cookies.plugin import Cookies
+import subprocess
 
-def build_default(cookies: Cookies) -> None:
+def test_build_default(cookies: Cookies) -> None:
     """build the cookiecutter with default parameters and perform small checks
 
     Args:
@@ -12,11 +13,11 @@ def build_default(cookies: Cookies) -> None:
     assert result.exit_code == 0
     assert result.exception is None
 
-    assert result.project_path.name == "python-project"
+    assert result.project_path.name == "package-skeleton"
     assert result.project_path.is_dir()
 
-    # init git
+    # init git to make pre-commit checks work
+    assert subprocess.check_call(["git", "init"], cwd=result.project_path) == 0
 
     # nox check
-
-    # pre-commit check
+    assert subprocess.check_call(["nox"], cwd=result.project_path) == 0

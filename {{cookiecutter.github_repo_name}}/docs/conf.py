@@ -37,7 +37,7 @@ html_theme_options = {
         "image_dark": "static_/logo_dark.png",
     },
     "use_edit_page_button": True,
-    "footer_end": ["theme-version", "python-lib"],
+    "footer_end": ["theme-version", "pypackage-credit"],
     "icon_links": [
         {
             "name": "GitHub",
