@@ -24,6 +24,7 @@ def test(session):
 @nox.session(reuse_venv=True)
 def docs(session):
     """Build the documentation."""
+    build = session.posargs.pop() if session.posargs else "html"
     session.install(".[doc]")
     # patch version in nox instead of pyproject to avoid blocking conda releases
     session.install("git+https://github.com/jenshnielsen/sphinx.git@fix_9884")
@@ -33,9 +34,9 @@ def docs(session):
         "sphinx-build",
         "-v",
         "-b",
-        "html",
+        build,
         "docs",
-        "docs/_build/html",
+        f"docs/_build/{build}",
         "-w",
         "warnings.txt",
     )
