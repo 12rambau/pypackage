@@ -1,3 +1,5 @@
+:html_theme.sidebar_secondary.remove:
+
 {% set project_name_length = cookiecutter.project_name | length %}
 {{ cookiecutter.project_name }}
 {{ "=" * project_name_length }}
