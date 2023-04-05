@@ -2,11 +2,11 @@
 {{ cookiecutter.project_name }}
 {{ "=" * project_name_length }}
 
-.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
+.. image:: https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white
     :target: LICENSE
     :alt: License: MIT
 
-.. image:: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
+.. image:: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?logo=git&logoColor=white
    :target: https://conventionalcommits.org
    :alt: conventional commit
 
@@ -14,7 +14,7 @@
    :target: https://github.com/psf/black
    :alt: Black badge
 
-.. image:: https://img.shields.io/badge/code_style-prettier-ff69b4.svg
+.. image:: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier&logoColor=white
    :target: https://github.com/prettier/prettier
    :alt: prettier badge
 
@@ -22,7 +22,7 @@
     :target: https://pre-commit.com/
     :alt: pre-commit
 
-.. image:: https://img.shields.io/pypi/v/{{ cookiecutter.github_repo_name }}?color=blue&logo=python&logoColor=white
+.. image:: https://img.shields.io/pypi/v/{{ cookiecutter.github_repo_name }}?color=blue&logo=pypi&logoColor=white
     :target: https://pypi.org/project/{{ cookiecutter.github_repo_name }}/
     :alt: PyPI version
 
