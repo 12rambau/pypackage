@@ -20,6 +20,7 @@ def test(session):
     test_files = session.posargs or ["tests"]
     session.run("pytest", "--color=yes", "--cov", "--cov-report=xml", *test_files)
 
+
 @nox.session(reuse_venv=True, name="dead-fixtures")
 def dead_fixtures(session):
     """Check for dead fixtures within the tests."""
