@@ -18,7 +18,13 @@ def test(session):
     """Run all the test using the environment varialbe of the running machine."""
     session.install(".[test]")
     test_files = session.posargs or ["tests"]
-    session.run("pytest", "--color=yes", "--cov", "--cov-report=html", *test_files)
+    session.run("pytest", "--color=yes", "--cov", "--cov-report=xml", *test_files)
+
+@nox.session(reuse_venv=True, name="dead-fixtures")
+def dead_fixtures(session):
+    """Check for dead fixtures within the tests."""
+    session.install(".[test]")
+    session.run("pytest", "--dead-fixtures")
 
 
 @nox.session(reuse_venv=True)
