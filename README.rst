@@ -42,7 +42,7 @@ Usage
 
     .. code-block:: console
 
-        pre-commit Install
+        pre-commit install
 
 #.  Push to distant repository following Github instructions
 
