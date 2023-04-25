@@ -41,8 +41,7 @@ jobs:
       - name: build static docs
         run: nox -s docs
 
-{%- raw -%}
-  build:
+  {% raw -%}build:
     needs: [lint, mypy]
     strategy:
       fail-fast: true
