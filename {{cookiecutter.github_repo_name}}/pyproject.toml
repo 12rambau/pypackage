@@ -34,7 +34,7 @@ content-type = "text/x-rst"
 Homepage = "https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.github_repo_name }}"
 
 [project.optional-dependencies]
-dev = ["pre-commit", "commitizen", "nox", "mypy"]
+dev = ["pre-commit", "commitizen", "nox"]
 test = ["pytest", "pytest-sugar", "pytest-cov", "pytest-deadfixtures"]
 doc = ["sphinx", "pydata-sphinx-theme", "sphinx-copybutton", "sphinx-design", "sphinx-icon", "sphinx-btn"]
 
