@@ -34,6 +34,6 @@ The documentation contains 3 main sections:
    .. grid-item::
 
       .. card:: API
-         :link: api/modules.html
+         :link: autoapi/index.html
 
          Discover the lib API.
