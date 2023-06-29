@@ -36,7 +36,7 @@ Homepage = "https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.gi
 [project.optional-dependencies]
 dev = ["pre-commit", "commitizen", "nox"]
 test = ["pytest", "pytest-sugar", "pytest-cov", "pytest-deadfixtures"]
-doc = ["sphinx>=6.2.1", "pydata-sphinx-theme", "sphinx-copybutton", "sphinx-design", "sphinx-icon", "sphinx-btn"]
+doc = ["sphinx>=6.2.1", "pydata-sphinx-theme", "sphinx-copybutton", "sphinx-design", "sphinx-icon", "sphinx-autoapi"]
 
 [tool.setuptools]
 include-package-data = false
