@@ -18,11 +18,10 @@ release = "0.0.0"
 extensions = [
     "sphinx_copybutton",
     "sphinx.ext.napoleon",
-    "sphinx.ext.autosummary",
     "sphinx.ext.viewcode",
     "sphinx_design",
     "sphinxcontrib.icon",
-    "sphinxcontrib.btn",
+    "autoapi.extension",
 ]
 exclude_patterns = ["**.ipynb_checkpoints"]
 templates_path = ["_template"]
@@ -58,6 +57,7 @@ html_context = {
 html_css_files = ["custom.css"]
 
 # -- Options for autosummary/autodoc output ------------------------------------
-autosummary_generate = True
-autoclass_content = "init"
 autodoc_typehints = "description"
+autoapi_dirs = ["../{{ cookiecutter.project_slug }}"]
+autoapi_python_class_content = "init"
+autoapi_member_order = "groupwise"

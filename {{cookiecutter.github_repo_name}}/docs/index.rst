@@ -9,7 +9,6 @@
 
    usage
    contribute
-   API <api/modules>
 
 Documentation contents
 ----------------------

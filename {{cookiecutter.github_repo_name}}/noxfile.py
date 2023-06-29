@@ -33,17 +33,8 @@ def docs(session):
     """Build the documentation."""
     build = session.posargs.pop() if session.posargs else "html"
     session.install(".[doc]")
-    session.run("sphinx-apidoc", "-o", "docs/api", "{{ cookiecutter.project_slug }}")
-    session.run(
-        "sphinx-build",
-        "-v",
-        "-b",
-        build,
-        "docs",
-        f"docs/_build/{build}",
-        "-w",
-        "warnings.txt",
-    )
+    dst, warn = f"docs/_build/{build}", "warnings.txt"
+    session.run("sphinx-build", "-v", "-b", build, "docs", dst, "-w", warn)
     session.run("python", "tests/check_warnings.py")
 
 
