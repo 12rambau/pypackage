@@ -94,8 +94,8 @@ To build the documentation locally, use the following command:
 
 For each pull request, the documentation is built and deployed to make it easier to review the changes in the PR. To access the docs build from a PR, click on the "Read the Docs" preview in the CI/CD jobs.
 
-Realease new version
-^^^^^^^^^^^^^^^^^^^^
+Release new version
+^^^^^^^^^^^^^^^^^^^
 
 To release a new version, start by pushing a new bump from the local directory:
 
@@ -103,6 +103,6 @@ To release a new version, start by pushing a new bump from the local directory:
 
     cz bump
 
-The commitizen-tool will detect the sementic version name based on the existing commits messages.
+The commitizen-tool will detect the semantic version name based on the existing commits messages.
 
 Then push to Github. In Github design a new release using the same tag name nad the ``release.yaml`` job will send it to pipy.
