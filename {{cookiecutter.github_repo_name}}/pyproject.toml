@@ -89,3 +89,13 @@ warn_redundant_casts = true
 
 [tool.licensecheck]
 using = "PEP631:test;dev;doc"
+
+[tool.cruft]
+skip = [
+  "{{ cookiecutter.project_slug }}/",
+  "docs/usage.rst",
+  "tests/",
+  ".gitignore",
+  "AUTHORS.rst",
+  "LICENSE",
+]
