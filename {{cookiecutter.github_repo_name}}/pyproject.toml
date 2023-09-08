@@ -53,10 +53,6 @@ doc = [
   "sphinx-autoapi"
 ]
 
-[tool.setuptools]
-include-package-data = false
-license-files = ["LICENSE.txt"]
-
 [tool.hatch.build.targets.wheel]
 only-include = ["{{ cookiecutter.project_slug }}"]
 
