@@ -25,7 +25,7 @@ dependencies = [
 ]
 
 [[project.authors]]
-name = "{{ cookiecutter.author }}"
+name = "{{ cookiecutter.author_first_name }} {{ cookiecutter.author_last_name }}"
 email = "{{ cookiecutter.author_email }}"
 
 [project.license]
@@ -53,10 +53,6 @@ doc = [
   "sphinx-autoapi"
 ]
 
-[tool.setuptools]
-include-package-data = false
-license-files = ["LICENSE.txt"]
-
 [tool.hatch.build.targets.wheel]
 only-include = ["{{ cookiecutter.project_slug }}"]
 
@@ -75,7 +71,8 @@ version = "0.0.0"
 version_files = [
     "pyproject.toml:version",
     "{{ cookiecutter.project_slug }}/__init__.py:__version__",
-    "docs/conf.py:release"
+    "docs/conf.py:release",
+    "CITATION.cff:version"
 ]
 
 [tool.pytest.ini_options]
