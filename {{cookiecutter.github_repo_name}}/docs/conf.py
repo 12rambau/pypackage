@@ -10,7 +10,7 @@ from datetime import datetime
 
 # -- Project information -------------------------------------------------------
 project = "{{ cookiecutter.project_name }}"
-author = "{{ cookiecutter.author }}"
+author = "{{ cookiecutter.author_first_name }} {{ cookiecutter.author_last_name }}"
 copyright = f"2020-{datetime.now().year}, {author}"
 release = "0.0.0"
 
