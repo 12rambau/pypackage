@@ -7,7 +7,7 @@ Thanks goes to these wonderful people (`emoji key <https://allcontributors.org/d
         <td align="center">
             <a href="#">
                <img src="https://github.com/{{ cookiecutter.github_user }}.png" width="70px;" alt="{{ cookiecutter.github_user }}"/><br />
-               <sub><b>{{ cookiecutter.author }}</b></sub>
+               <sub><b>{{ cookiecutter.author_first_name }} {{ cookiecutter.author_last_name }}</b></sub>
             </a>
             <a href="#code" title="Code">💻</a>
          </td>
