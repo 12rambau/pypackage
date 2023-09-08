@@ -6,6 +6,6 @@
     "author_last_name": "Lastname",
     "github_user": "username",
     "github_default_branch": "main",
-    "author_email": "{{ cookiecutter.author_first_name }}.{{ cookiecutter.author_last_name}}@domain.io",
+    "author_email": "{{ cookiecutter.author_first_name.lower() }}.{{ cookiecutter.author_last_name.lower() }}@domain.io",
     "short_description": "the skeleton of a python lib with everything I like"
 }
