@@ -19,6 +19,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
+    "sphinx.ext.intersphinx",
     "sphinx_design",
     "autoapi.extension",
 ]
@@ -60,3 +61,6 @@ autodoc_typehints = "description"
 autoapi_dirs = ["../{{ cookiecutter.project_slug }}"]
 autoapi_python_class_content = "init"
 autoapi_member_order = "groupwise"
+
+# -- Options for intersphinx output --------------------------------------------
+intersphinx_mapping = {}
