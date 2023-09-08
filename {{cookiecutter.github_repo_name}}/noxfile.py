@@ -47,9 +47,8 @@ def mypy(session):
     session.run("mypy", *test_files)
 
 @nox.session(reuse_venv=True)
-def stub(session):
+def stubgen(session):
     """Generate stub files for the lib but requires human attention before merge."""
     session.install("mypy")
-    package = session.posargs[0] or "{{ cookiecutter.project_slug }}"
-    options = ["--include-private", "--no-import", "--no-setup-py"]
-    session.run("stubgen", "-p", package, "-o", "stubs", *options)
+    package = session.posargs or ["{{ cookiecutter.project_slug }}"]
+    session.run("stubgen", "-p", package[0], "-o", "stubs", "--include-private")
