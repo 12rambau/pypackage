@@ -2,6 +2,8 @@
 
 The nox run are build in isolated environment that will be stored in .nox. to force the venv update, remove the .nox/xxx folder.
 """
+import datetime
+import fileinput
 
 import nox
 
@@ -44,3 +46,15 @@ def mypy(session):
     session.install("mypy")
     test_files = session.posargs or ["{{ cookiecutter.project_slug }}"]
     session.run("mypy", *test_files)
+
+@nox.session(name="release-date", reuse_venv=True)
+def release_date(session):
+    """update the release date of the citation file."""
+    current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+
+    with fileinput.FileInput("CITATION.cff", inplace=True) as file:
+        for line in file:
+            if line.startswith("date-released:"):
+                print(f"date-released: \"{current_date}\"")
+            else:
+                print(line, end="")

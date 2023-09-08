@@ -18,7 +18,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install setuptools wheel twine build
-      - name: update release date in .cff
+      - name: update citation date
         run: |
           python -m pip install cffconvert
           cffconvert --update-date
