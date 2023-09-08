@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=61.2", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "{{ cookiecutter.github_repo_name }}"
@@ -34,7 +34,6 @@ content-type = "text/x-rst"
 Homepage = "https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.github_repo_name }}"
 
 [project.optional-dependencies]
-dev = ["pre-commit", "commitizen", "nox"]
 test = ["pytest", "pytest-sugar", "pytest-cov", "pytest-deadfixtures"]
 doc = ["sphinx>=6.2.1", "pydata-sphinx-theme", "sphinx-copybutton", "sphinx-design", "sphinx-icon", "sphinx-autoapi"]
 
@@ -42,9 +41,12 @@ doc = ["sphinx>=6.2.1", "pydata-sphinx-theme", "sphinx-copybutton", "sphinx-desi
 include-package-data = false
 license-files = ["LICENSE.txt"]
 
-[tool.setuptools.packages.find]
-include = ["{{ cookiecutter.project_slug }}*"]
-exclude = ["docs*", "tests*"]
+[tool.hatch.build.targets.wheel]
+only-include = ["{{ cookiecutter.project_slug }}"]
+
+[tool.hatch.envs.default]
+dependencies = ["pre-commit", "commitizen", "nox"]
+post-install-commands = ["pre-commit install"]
 
 [tool.commitizen]
 tag_format = "v$major.$minor.$patch$prerelease"

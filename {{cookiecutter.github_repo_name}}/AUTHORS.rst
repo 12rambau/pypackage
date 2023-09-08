@@ -6,8 +6,8 @@ Thanks goes to these wonderful people (`emoji key <https://allcontributors.org/d
         <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
         <td align="center">
             <a href="#">
-               <img src="https://github.com/{{ github_user }}.png" width="70px;" alt="{{ github_user }}"/><br />
-               <sub><b>{{ author }}</b></sub>
+               <img src="https://github.com/{{ cookiecutter.github_user }}.png" width="70px;" alt="{{ cookiecutter.github_user }}"/><br />
+               <sub><b>{{ cookiecutter.author }}</b></sub>
             </a>
             <a href="#code" title="Code">💻</a>
          </td>
