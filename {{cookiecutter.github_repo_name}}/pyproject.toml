@@ -76,7 +76,7 @@ version_files = [
     "pyproject.toml:version",
     "{{ cookiecutter.project_slug }}/__init__.py:__version__",
     "docs/conf.py:release",
-    ".cff:version"
+    "CITATION.cff:version"
 ]
 
 [tool.pytest.ini_options]

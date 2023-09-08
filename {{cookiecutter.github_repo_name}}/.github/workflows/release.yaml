@@ -18,7 +18,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install setuptools wheel twine build
-
+      - name: update release date in .cff
+        run: |
+          python -m pip install cffconvert
+          cffconvert --update-date
       - name: Build and publish
         env:
           TWINE_USERNAME: __token__
