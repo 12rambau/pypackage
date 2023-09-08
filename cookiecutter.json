@@ -9,5 +9,5 @@
     "github_default_branch": "main",
     "author_email": "{{ cookiecutter.author_first_name.lower() }}.{{ cookiecutter.author_last_name.lower() }}@domain.io",
     "short_description": "the skeleton of a python lib with everything I like",
-    "today": "yyyy-mm-dd",
+    "today": "yyyy-mm-dd"
 }
