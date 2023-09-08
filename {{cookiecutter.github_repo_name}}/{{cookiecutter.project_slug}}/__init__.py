@@ -5,10 +5,16 @@ __author__ = "{{ cookiecutter.author_first_name }} {{ cookiecutter.author_last_n
 __email__ = "{{ cookiecutter.author_email }}"
 
 
-def hello_world() -> str:
-    """Hello world demo method.
+class Hello:
+    """Hello world class."""
 
-    Returns:
-        the hello world string
-    """
-    return "hello world !"
+    msg = "hello world !"
+    "the message to print"
+
+    def hello_world(self) -> str:
+        """Hello world demo method.
+
+        Returns:
+            the hello world string
+        """
+        return self.msg

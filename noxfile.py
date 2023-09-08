@@ -8,6 +8,14 @@ import nox
 @nox.session(reuse_venv=True)
 def test(session):
     """Run all the test using the environment varialbe of the running machine."""
-    session.install("pytest", "cookiecutter", "nox", "pre-commit", "pytest-cookies>=0.7.0", "pyyaml")
+    session.install(
+        "pytest",
+        "cookiecutter",
+        "nox",
+        "pre-commit",
+        "pytest-cookies>=0.7.0",
+        "pyyaml",
+        "pytest-regressions",
+    )
     test_files = session.posargs or ["tests"]
     session.run("pytest", "--color=yes", *test_files)

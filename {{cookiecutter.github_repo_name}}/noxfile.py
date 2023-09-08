@@ -7,6 +7,7 @@ import fileinput
 
 import nox
 
+nox.options.sessions = ["lint", "test", "docs", "mypy"]
 
 @nox.session(reuse_venv=True)
 def lint(session):
@@ -46,6 +47,15 @@ def mypy(session):
     session.install("mypy")
     test_files = session.posargs or ["{{ cookiecutter.project_slug }}"]
     session.run("mypy", *test_files)
+
+
+@nox.session(reuse_venv=True)
+def stubgen(session):
+    """Generate stub files for the lib but requires human attention before merge."""
+    session.install("mypy")
+    package = session.posargs or ["{{ cookiecutter.project_slug }}"]
+    session.run("stubgen", "-p", package[0], "-o", "stubs", "--include-private")
+
 
 @nox.session(name="release-date", reuse_venv=True)
 def release_date(session):

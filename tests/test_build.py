@@ -52,6 +52,20 @@ def test_build_yaml(cookies: Cookies) -> None:
     data = yaml.safe_load((workflows_path/"unit.yaml").read_text())
     data = yaml.safe_load((workflows_path/"release.yaml").read_text())
 
+
+def test_stub_file(cookies: Cookies, file_regression) -> None:
+    """Build the documentation and check github actions files
+
+    Args:
+        cookies: the cookies to build
+        file_regression: the file regression fixture
+    """
+    result = cookies.bake()
+    subprocess.check_call(["nox", "-s" "stubgen"], cwd=result.project_path)
+    stub_path = Path(result.project_path)/"stubs"/"package_skeleton"/"__init__.pyi"
+    file_regression.check(stub_path.read_text(), extension=".pyi")
+
+
 def test_update_citation(cookies: Cookies) -> None:
     """Emulate a release to update the release date in the citation file
 
@@ -64,7 +78,3 @@ def test_update_citation(cookies: Cookies) -> None:
     current_date = datetime.datetime.now().strftime("%Y-%m-%d")
     citation_file = Path(result.project_path)/"CITATION.cff"
     assert f'date-released: "{current_date}"' in citation_file.read_text()
-
-
-
-
