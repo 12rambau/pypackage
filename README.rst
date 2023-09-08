@@ -16,20 +16,32 @@ Usage
 -----
 
 #.  Define a project name. It can be anything with any normal character (`w+ <regexr.com/7aj95>`__) like "Python Project".
+
 #.  Init an empty github repository with the slug name of your project. A slug should only use lower case characters and replace all spaces with ``-`` like "python-project".
+
 #.  Enable the repository on codecov and add a ``CODECOV_TOKEN`` github action env variable.
+
 #.  Start a new readthedocs project hooked to the repository. in the admin tick the "build on PR" option.
+
 #.  In your local computer start the project by running the following code. Set the same names as in the github repository.
+
+    .. note::
+
+        Install ``cruft`` if necessary:
+
+        .. code-block:: console
+
+            pip install cruft
 
     .. code-block:: console
 
-        cookiecutter gh:12rambau/pypackage
+        cruft create https://github.com/12rambau/pypackage
 
 #.  Go to the folder and init the git project:
 
     .. code-block:: console
 
-        cd python-package
+        cd python-project
         git init
 
 #.  Run ``nox`` tests to see if everything is working. This command will run the 4 nox sessions.
@@ -50,7 +62,7 @@ Usage
 
         git add .
         git commit -m "build: initial commit"
-        git remote add origin git@github.com:12rambau/test-pierrick-lib.git
+        git remote add origin git@github.com:<username>/python-project.git
         git branch -M main
         git push -u origin main
 
@@ -62,11 +74,13 @@ Usage
         twine upload dist/**
 
 #.  Modify the lib as you see fit
+
 #.  Update version with commitizen tools:
 
     .. code-block:: console
 
         cz bump
 
-#.  Add a token to a new github action env variable ``PYPI_PASSWORD`` from your pypi profile. limite the cope to this repository only.
+#.  Add a token to a new github action env variable ``PYPI_PASSWORD`` from your pypi profile. limit the scope to this repository only.
+
 #.  Start a new release in github and let actions do the rest

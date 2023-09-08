@@ -20,7 +20,6 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "sphinx_design",
-    "sphinxcontrib.icon",
     "autoapi.extension",
 ]
 exclude_patterns = ["**.ipynb_checkpoints"]
