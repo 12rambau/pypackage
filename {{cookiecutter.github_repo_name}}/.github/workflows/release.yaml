@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: "3.10"
       - name: Install dependencies
-        run: pip install setuptools wheel twine build nox
+        run: pip install twine build nox
       - name: update citation date
         run: nox -s release-date
       - name: Build and publish
