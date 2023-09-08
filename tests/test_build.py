@@ -2,6 +2,7 @@
 
 import subprocess
 from pathlib import Path
+import datetime
 
 from pytest_cookies.plugin import Cookies
 import yaml
@@ -51,6 +52,18 @@ def test_build_yaml(cookies: Cookies) -> None:
     data = yaml.safe_load((workflows_path/"unit.yaml").read_text())
     data = yaml.safe_load((workflows_path/"release.yaml").read_text())
 
+def test_update_citation(cookies: Cookies) -> None:
+    """Emulate a release to update the release date in the citation file
+
+    Args:
+        cookies: the cookies to build
+    """
+    result = cookies.bake()
+    subprocess.check_call(["nox", "-s", "release-date"], cwd=result.project_path)
+
+    current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+    citation_file = Path(result.project_path)/"CITATION.cff"
+    assert f'date-released: "{current_date}"' in citation_file.read_text()
 
 
 

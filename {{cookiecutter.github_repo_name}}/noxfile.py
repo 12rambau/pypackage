@@ -55,6 +55,6 @@ def release_date(session):
     with fileinput.FileInput("CITATION.cff", inplace=True) as file:
         for line in file:
             if line.startswith("date-released:"):
-                print(f"date-released: \"{current_date}\"")
+                print(f'date-released: "{current_date}"')
             else:
                 print(line, end="")
