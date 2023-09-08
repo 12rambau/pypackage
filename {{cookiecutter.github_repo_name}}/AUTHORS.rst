@@ -1,9 +1,19 @@
 Thanks goes to these wonderful people (`emoji key <https://allcontributors.org/docs/en/emoji-key>`_):
 
 .. raw:: html
-
-    <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-    <!-- ALL-CONTRIBUTORS-LIST:END -->
+    <table class="table table-bordered">
+      <tr>
+        <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+        <td align="center">
+            <a href="#">
+               <img src="https://github.com/{{ cookiecutter.github_user }}.png" width="70px;" alt="{{ cookiecutter.github_user }}"/><br />
+               <sub><b>{{ cookiecutter.author }}</b></sub>
+            </a>
+            <a href="#code" title="Code">💻</a>
+         </td>
+        <!-- ALL-CONTRIBUTORS-LIST:END -->
+      </tr>
+    </table>
 
 This project follows the `all-contributors <https://allcontributors.org>`_ specification.
 

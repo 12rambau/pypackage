@@ -1,12 +1,15 @@
 [build-system]
-requires = ["setuptools>=61.2", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "{{ cookiecutter.github_repo_name }}"
 version = "0.0.0"
 description = "{{ cookiecutter.short_description }}"
-keywords = ["skeleton", "Python"]
+keywords = [
+  "skeleton",
+  "Python"
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -16,8 +19,10 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
 ]
-requires-python = ">=3.6.9"
-dependencies = ["deprecated>=1.2.14"]
+requires-python = ">=3.8"
+dependencies = [
+  "deprecated>=1.2.14"
+]
 
 [[project.authors]]
 name = "{{ cookiecutter.author }}"
@@ -34,17 +39,34 @@ content-type = "text/x-rst"
 Homepage = "https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.github_repo_name }}"
 
 [project.optional-dependencies]
-dev = ["pre-commit", "commitizen", "nox"]
-test = ["pytest", "pytest-sugar", "pytest-cov", "pytest-deadfixtures"]
-doc = ["sphinx>=6.2.1", "pydata-sphinx-theme", "sphinx-copybutton", "sphinx-design", "sphinx-icon", "sphinx-autoapi"]
+test = [
+  "pytest",
+  "pytest-sugar",
+  "pytest-cov",
+  "pytest-deadfixtures"
+]
+doc = [
+  "sphinx>=6.2.1",
+  "pydata-sphinx-theme",
+  "sphinx-copybutton",
+  "sphinx-design",
+  "sphinx-autoapi"
+]
 
 [tool.setuptools]
 include-package-data = false
 license-files = ["LICENSE.txt"]
 
-[tool.setuptools.packages.find]
-include = ["{{ cookiecutter.project_slug }}*"]
-exclude = ["docs*", "tests*"]
+[tool.hatch.build.targets.wheel]
+only-include = ["{{ cookiecutter.project_slug }}"]
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pre-commit",
+  "commitizen",
+  "nox"
+]
+post-install-commands = ["pre-commit install"]
 
 [tool.commitizen]
 tag_format = "v$major.$minor.$patch$prerelease"
