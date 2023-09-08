@@ -26,7 +26,7 @@ jobs:
       - name: Run the Action
         uses: devops-infra/action-pull-request@v0.5.5
         with:
-          {% raw -%}github_token: ${{ secrets.GITHUB_TOKEN }}{%- endraw -%}
+          {% raw -%}github_token: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
           source_branch: cruft_update
           target_branch: main
           title: Automatic Cruft update
