@@ -1,0 +1,33 @@
+name: Check for template update
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # every day at midnight
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: pip install cruft
+      - name: Check for template update
+        run: cruft update --skip-apply-ask
+      - name: push the files
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: cruft_udate
+          create_branch: true
+          commit_message: Automatic Cruft update
+          push_options: "--force"
+      - name: Run the Action
+        uses: devops-infra/action-pull-request@v0.5.5
+        with:
+          {% raw -%}github_token: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          source_branch: cruft_update
+          target_branch: main
+          title: Automatic Cruft update
+          body: Review carefully this PR as some configuration files may be impacted.
