@@ -40,4 +40,4 @@ short_description:
   help: "A short description of the project"
 
 # copier internal parameters
-_subdirectory: "{{ github_repo_name }}"
+_subdirectory: "package"
