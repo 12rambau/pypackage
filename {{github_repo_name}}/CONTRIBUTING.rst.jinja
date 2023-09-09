@@ -1,9 +1,9 @@
 Contribute
 ==========
 
-Thank you for your help improving **{{ cookiecutter.project_name }}**!
+Thank you for your help improving **{{ project_name }}**!
 
-**{{ cookiecutter.project_name }}** uses `nox <https://nox.thea.codes/en/stable/>`__ to automate several development-related tasks.
+**{{ project_name }}** uses `nox <https://nox.thea.codes/en/stable/>`__ to automate several development-related tasks.
 Currently, the project uses four automation processes (called sessions) in ``noxfile.py``:
 
 -   ``mypy``: to perform a mypy check on the lib;
@@ -37,7 +37,7 @@ See the following sections for more details.
 Clone the repository
 ^^^^^^^^^^^^^^^^^^^^
 
-First off, you'll need your own copy of **{{ cookiecutter.project_name }}** codebase. You can clone it for local development like so:
+First off, you'll need your own copy of **{{ project_name }}** codebase. You can clone it for local development like so:
 
 Fork the repository so you have your own copy on GitHub. See the `GitHub forking guide for more information <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`__.
 
@@ -45,8 +45,8 @@ Then, clone the repository locally so that you have a local copy to work on:
 
 .. code-block:: console
 
-   git clone https://github.com/<YOUR USERNAME>/{{ cookiecutter.github_repo_name }}
-   cd {{ cookiecutter.github_repo_name }}
+   git clone https://github.com/<YOUR USERNAME>/{{ github_repo_name }}
+   cd {{ github_repo_name }}
 
 Then install the development version of the extension:
 
@@ -54,7 +54,7 @@ Then install the development version of the extension:
 
    pip install -e .[dev]
 
-This will install the **{{ cookiecutter.project_name }}** library, together with two additional tools:
+This will install the **{{ project_name }}** library, together with two additional tools:
 -   `pre-commit <https://pre-commit.com>`__ for automatically enforcing code standards and quality checks before commits.
 -   `nox <https://nox.thea.codes/en/stable/>`__, for automating common development tasks.
 

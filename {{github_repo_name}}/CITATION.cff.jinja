@@ -1,0 +1,11 @@
+cff-version: "1.2.0"
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "{{ author_last_name }}"
+  given-names: "{{ author_first_name }}"
+  orcid: "https://orcid.org/{{ author_orcid }}"
+title: "{{ project_name }}"
+version: "0.0.0"
+doi: ""
+date-released: "{% now 'utc', '%Y-%m-%d' %}"
+url: "https://github.com/{{ github_user }}/{{ github_repo_name }}"

@@ -9,8 +9,8 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 from datetime import datetime
 
 # -- Project information -------------------------------------------------------
-project = "{{ cookiecutter.project_name }}"
-author = "{{ cookiecutter.author_first_name }} {{ cookiecutter.author_last_name }}"
+project = "{{ project_name }}"
+author = "{{ author_first_name }} {{ author_last_name }}"
 copyright = f"2020-{datetime.now().year}, {author}"
 release = "0.0.0"
 
@@ -38,27 +38,27 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/{{ cookiecutter.github_user }}/{{cookiecutter.github_repo_name}}",
+            "url": "https://github.com/{{ github_user }}/{{github_repo_name}}",
             "icon": "fa-brands fa-github",
         },
         {
             "name": "Pypi",
-            "url": "https://pypi.org/project/{{ cookiecutter.github_repo_name }}/",
+            "url": "https://pypi.org/project/{{ github_repo_name }}/",
             "icon": "fa-brands fa-python",
         },
     ],
 }
 html_context = {
-    "github_user": "{{ cookiecutter.github_user }}",
-    "github_repo": "{{ cookiecutter.github_repo_name }}",
-    "github_version": "{{ cookiecutter.github_default_branch }}",
+    "github_user": "{{ github_user }}",
+    "github_repo": "{{ github_repo_name }}",
+    "github_version": "{{ github_default_branch }}",
     "doc_path": "docs",
 }
 html_css_files = ["custom.css"]
 
 # -- Options for autosummary/autodoc output ------------------------------------
 autodoc_typehints = "description"
-autoapi_dirs = ["../{{ cookiecutter.project_slug }}"]
+autoapi_dirs = ["../{{ project_slug }}"]
 autoapi_python_class_content = "init"
 autoapi_member_order = "groupwise"
 

@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "{{ cookiecutter.github_repo_name }}"
+name = "{{ github_repo_name }}"
 version = "0.0.0"
-description = "{{ cookiecutter.short_description }}"
+description = "{{ short_description }}"
 keywords = [
   "skeleton",
   "Python"
@@ -25,8 +25,8 @@ dependencies = [
 ]
 
 [[project.authors]]
-name = "{{ cookiecutter.author_first_name }} {{ cookiecutter.author_last_name }}"
-email = "{{ cookiecutter.author_email }}"
+name = "{{ author_first_name }} {{ author_last_name }}"
+email = "{{ author_email }}"
 
 [project.license]
 text = "MIT"
@@ -36,7 +36,7 @@ file = "README.rst"
 content-type = "text/x-rst"
 
 [project.urls]
-Homepage = "https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.github_repo_name }}"
+Homepage = "https://github.com/{{ github_user }}/{{ github_repo_name }}"
 
 [project.optional-dependencies]
 test = [
@@ -54,7 +54,7 @@ doc = [
 ]
 
 [tool.hatch.build.targets.wheel]
-only-include = ["{{ cookiecutter.project_slug }}"]
+only-include = ["{{ project_slug }}"]
 
 [tool.hatch.envs.default]
 dependencies = [
@@ -70,7 +70,7 @@ update_changelog_on_bump = false
 version = "0.0.0"
 version_files = [
     "pyproject.toml:version",
-    "{{ cookiecutter.project_slug }}/__init__.py:__version__",
+    "{{ project_slug }}/__init__.py:__version__",
     "docs/conf.py:release",
     "CITATION.cff:version"
 ]
@@ -94,7 +94,7 @@ docstring-quotes = "double"
 convention = "google"
 
 [tool.coverage.run]
-source = ["{{ cookiecutter.project_slug }}"]
+source = ["{{ project_slug }}"]
 
 [tool.doc8]
 ignore = ["D001"] # we follow a 1 line = 1 paragraph style

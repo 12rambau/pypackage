@@ -1,0 +1,43 @@
+# questions
+project_name:
+  typr: str
+  default: "Package skeleton"
+  help: "The name of the project"
+
+github_repo_name:
+  type: str
+  default: "{{ project_name.lower().replace(' ', '-') }}"
+  help: "The name of the GitHub repository"
+
+project_slug:
+  type: str
+  default: "{{ github_repo_name.lower().replace('-', '_') }}"
+  help: "The slug that will be used to name the lib package"
+
+author_first_name:
+  type: str
+  default: "Firstname"
+  help: "The first name of the author"
+
+author_last_name:
+  type: str
+  default: "Lastname"
+  help: "The last name of the author"
+
+author_orcid:
+  type: str
+  default: "0000-0000-0000-0000"
+  help: "The ORCID ID of the author in case of scientific publication"
+
+author_email:
+  type: str
+  default: "{{ author_first_name.lower() }}.{{ author_last_name.lower() }}@domain.io"
+  help: "The email of the author"
+
+short_description:
+  type: str
+  default: "the skeleton of a python lib with everything I like"
+  help: "A short description of the project"
+
+# copier internal parameters
+_subdirectory: "{{ github_repo_name }}"
