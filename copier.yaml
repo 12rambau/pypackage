@@ -41,3 +41,4 @@ short_description:
 
 # copier internal parameters
 _subdirectory: "package"
+_jinja_extensions: [jinja2_time.TimeExtension]

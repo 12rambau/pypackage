@@ -53,13 +53,13 @@ jobs:
             python-version: "3.11"
           - os: windows-latest # windows test
             python-version: "3.11"
-    runs-on: {% raw -%}${{ matrix.os }}{% endraw -%}
+    runs-on: {% raw -%}${{ matrix.os }}{% endraw %}
     steps:
       - uses: actions/checkout@v3
-      - name: {% raw -%}Set up Python ${{ matrix.python-version }}{% endraw -%}
+      - name: {% raw -%}Set up Python ${{ matrix.python-version }}{% endraw %}
         uses: actions/setup-python@v4
         with:
-          python-version: {% raw -%}${{ matrix.python-version }}{% endraw -%}
+          python-version: {% raw -%}${{ matrix.python-version }}{% endraw %}
       - name: Install nox
         run: pip install nox
       - name: test with pytest
@@ -82,5 +82,5 @@ jobs:
       - name: codecov
         uses: codecov/codecov-action@v3
         with:
-          token: {% raw -%}${{ secrets.CODECOV_TOKEN }}{% endraw -%}
+          token: {% raw -%}${{ secrets.CODECOV_TOKEN }}{% endraw %}
           verbose: true
