@@ -30,3 +30,4 @@ jobs:
         uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: pypackage_update.yaml
+          inputs: '{"version": "${{ steps.get_latest_release.outputs.latest }}" }'
