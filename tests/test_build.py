@@ -50,8 +50,10 @@ def test_build_yaml(copie: Copie) -> None:
 
     # will raise an error if the file is ill shaped
     workflows_path = Path(result.project_dir)/".github"/"workflows"
-    data = yaml.safe_load((workflows_path/"unit.yaml").read_text())
-    data = yaml.safe_load((workflows_path/"release.yaml").read_text())
+    _ = yaml.safe_load((workflows_path/"unit.yaml").read_text())
+    _ = yaml.safe_load((workflows_path/"release.yaml").read_text())
+    _ = yaml.safe_load((workflows_path/"pypackage_check.yaml").read_text())
+    _ = yaml.safe_load((workflows_path/"pypackage_update.yaml").read_text())
 
 
 def test_stub_file(copie: Copie, file_regression) -> None:
