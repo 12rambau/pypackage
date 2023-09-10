@@ -1,0 +1,4 @@
+[tool.commitizen]
+update_changelog_on_bump = false
+version = "0.0.0"
+tag_format = "v$version"
