@@ -14,7 +14,7 @@ jobs:
       - name: install copier
         run: pip install copier jinja2-time
       - name: update repository
-        run: copier update
+        run: copier update --trust
       - name: push the files
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
