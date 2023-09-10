@@ -7,6 +7,7 @@ The skeleton of a python lib embeding what I like:
 - nox unit tests (doc, `pytest <https://docs.pytest.org>`__, `mypy <https://mypy.readthedocs.io>`__)
 - a documentation structure based on `Sphinx <https://www.sphinx-doc.org>`__ using the `pydata-sphinx-theme <https://pydata-sphinx-theme.readthedocs.io>`__
 - a complete github folder (README, LICENSE, etc...)
+- a n automated citation file
 - github actions (test, coverage, mypy, lint)
 - ready to publish on `pipy <https://pypi.org/>`__
 - ready to publish on `readthedocs <https://readthedocs.org/>`__
@@ -27,15 +28,15 @@ Usage
 
     .. note::
 
-        Install ``cruft`` if necessary:
+        Install ``copier`` if necessary:
 
         .. code-block:: console
 
-            pip install cruft
+            pip install copier
 
     .. code-block:: console
 
-        cruft create https://github.com/12rambau/pypackage
+        copier copy gh:12rambau/pypackage <python-project>
 
 #.  Go to the folder and init the git project:
 
@@ -62,7 +63,7 @@ Usage
 
         git add .
         git commit -m "build: initial commit"
-        git remote add origin git@github.com:<username>/python-project.git
+        git remote add origin git@github.com:<username>/<python-project>.git
         git branch -M main
         git push -u origin main
 
