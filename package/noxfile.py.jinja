@@ -13,7 +13,7 @@ nox.options.sessions = ["lint", "test", "docs", "mypy"]
 def lint(session):
     """Apply the pre-commits."""
     session.install("pre-commit")
-    session.run("pre-commit", "run", "--a", *session.posargs)
+    session.run("pre-commit", "run", "--all-files", *session.posargs)
 
 
 @nox.session(reuse_venv=True)
@@ -59,7 +59,7 @@ def stubgen(session):
 
 @nox.session(name="release-date", reuse_venv=True)
 def release_date(session):
-    """update the release date of the citation file."""
+    """Update the release date of the citation file."""
     current_date = datetime.datetime.now().strftime("%Y-%m-%d")
 
     with fileinput.FileInput("CITATION.cff", inplace=True) as file:
