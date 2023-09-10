@@ -22,7 +22,7 @@ jobs:
       - name: get current pypackage version
         id: get_current_version
         run: |
-          CURRENT_VERSION=$(grep -Eo "_commit: (\d+\.\d+\.\d+)" copier.yml | cut -d " " -f 2)
+          CURRENT_VERSION=$(grep -Eo "_commit: (\d+\.\d+\.\d+)" copier.yaml | cut -d " " -f 2)
           echo "current=$CURRENT_VERSION" >> $GITHUB_OUTPUT
           echo "current release: $CURRENT_VERSION"
       - name: call dispatch
