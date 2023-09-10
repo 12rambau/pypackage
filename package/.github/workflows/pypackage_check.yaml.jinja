@@ -29,4 +29,4 @@ jobs:
         if: steps.get_current_version.outputs.current != steps.get_latest_release.outputs.latest
         uses: benc-uk/workflow-dispatch@v1
         with:
-          workflow: update_pypackage.yaml
+          workflow: pypackage_update.yaml
