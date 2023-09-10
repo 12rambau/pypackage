@@ -1,0 +1,29 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: install copier
+        run: pip install copier jinja2-time
+      - name: update repository
+        run: copier update
+      - name: push the files
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: copier_update
+          create_branch: true
+          commit_message: "bump: new copier template release"
+          push_options: "--force"
+
+      - name: Create PR
+        uses: devops-infra/action-pull-request@v0.5.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: copier_update
+          target_branch: main
