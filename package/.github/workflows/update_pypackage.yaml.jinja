@@ -24,6 +24,6 @@ jobs:
       - name: Create PR
         uses: devops-infra/action-pull-request@v0.5.5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: {% raw -%}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           source_branch: copier_update
           target_branch: main
