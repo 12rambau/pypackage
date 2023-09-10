@@ -1,5 +1,5 @@
-{% set project_name_length = cookiecutter.project_name | length %}
-{{ cookiecutter.project_name }}
+{% set project_name_length = project_name | length %}
+{{ project_name }}
 {{ "=" * project_name_length }}
 
 .. image:: https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white
@@ -22,26 +22,26 @@
     :target: https://pre-commit.com/
     :alt: pre-commit
 
-.. image:: https://img.shields.io/pypi/v/{{ cookiecutter.github_repo_name }}?color=blue&logo=pypi&logoColor=white
-    :target: https://pypi.org/project/{{ cookiecutter.github_repo_name }}/
+.. image:: https://img.shields.io/pypi/v/{{ github_repo_name }}?color=blue&logo=pypi&logoColor=white
+    :target: https://pypi.org/project/{{ github_repo_name }}/
     :alt: PyPI version
 
-.. image:: https://img.shields.io/github/actions/workflow/status/{{ cookiecutter.github_user }}/{{ cookiecutter.github_repo_name }}/unit.yaml?logo=github&logoColor=white
-    :target: https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.github_repo_name }}/actions/workflows/unit.yaml
+.. image:: https://img.shields.io/github/actions/workflow/status/{{ github_user }}/{{ github_repo_name }}/unit.yaml?logo=github&logoColor=white
+    :target: https://github.com/{{ github_user }}/{{ github_repo_name }}/actions/workflows/unit.yaml
     :alt: build
 
-.. image:: https://img.shields.io/codecov/c/github/{{ cookiecutter.github_user }}/{{ cookiecutter.github_repo_name }}?logo=codecov&logoColor=white
-    :target: https://codecov.io/gh/{{ cookiecutter.github_user }}/{{ cookiecutter.github_repo_name }}
+.. image:: https://img.shields.io/codecov/c/github/{{ github_user }}/{{ github_repo_name }}?logo=codecov&logoColor=white
+    :target: https://codecov.io/gh/{{ github_user }}/{{ github_repo_name }}
     :alt: Test Coverage
 
-.. image:: https://img.shields.io/readthedocs/{{ cookiecutter.github_repo_name }}?logo=readthedocs&logoColor=white
-    :target: https://{{ cookiecutter.github_repo_name }}.readthedocs.io/en/latest/
+.. image:: https://img.shields.io/readthedocs/{{ github_repo_name }}?logo=readthedocs&logoColor=white
+    :target: https://{{ github_repo_name }}.readthedocs.io/en/latest/
     :alt: Documentation Status
 
 Overview
 --------
 
-{{ cookiecutter.short_description }}
+{{ short_description }}
 
 Credits
 -------

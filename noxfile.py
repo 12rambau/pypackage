@@ -10,10 +10,11 @@ def test(session):
     """Run all the test using the environment varialbe of the running machine."""
     session.install(
         "pytest",
-        "cookiecutter",
         "nox",
+        "copier",
+        "jinja2-time",
         "pre-commit",
-        "pytest-cookies>=0.7.0",
+        "pytest-copie>=0.1.2",
         "pyyaml",
         "pytest-regressions",
     )
