@@ -13,7 +13,7 @@ nox.options.sessions = ["lint", "test", "docs", "mypy"]
 def lint(session):
     """Apply the pre-commits."""
     session.install("pre-commit")
-    session.run("pre-commit", "run", "--a", *session.posargs)
+    session.run("pre-commit", "run", "--all-files", *session.posargs)
 
 
 @nox.session(reuse_venv=True)
