@@ -2,6 +2,11 @@ name: Update copier template
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Copier template version to use'
+        required: true
+        default: {{ _commit }}
 
 jobs:
   update:
@@ -14,7 +19,7 @@ jobs:
       - name: install copier
         run: pip install copier jinja2-time
       - name: update repository
-        run: copier update
+        run: copier update --vcs-ref {% raw -%}{{ github.event.inputs.version }}{% endraw %}
       - name: push the files
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
