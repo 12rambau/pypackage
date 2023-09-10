@@ -4,77 +4,78 @@ import subprocess
 from pathlib import Path
 import datetime
 
-from pytest_cookies.plugin import Cookies
+from pytest_copie.plugin import Copie, Result
 import yaml
 
 
-def test_build_default(cookies: Cookies) -> None:
-    """Build the cookiecutter with default parameters and perform small checks
+def test_build_default(copie: Copie) -> None:
+    """Build the copier template with default parameters and perform small checks
 
     Args:
-        cookies: the cookies to build
+        copie: the copie to build
     """
 
-    result = cookies.bake()
+    result = copie.copy()
+
 
     assert result.exit_code == 0
     assert result.exception is None
 
-    assert result.project_path.name == "package-skeleton"
-    assert result.project_path.is_dir()
+    assert result.project_dir.name.startswith("copie")
+    assert result.project_dir.is_dir()
 
-def test_build_nox(cookies: Cookies) -> None:
+def test_build_nox(copie: Copie) -> None:
     """Build the documentation and run the nox processes
 
     Args:
-        cookies: the cookies to build
+        copie: the copie to build
     """
 
-    result = cookies.bake()
+    result = copie.copy()
 
     # init git to make pre-commit checks work
     subprocess.check_call(["git", "config", "--global", "init.defaultBranch", "main"])
-    subprocess.check_call(["git", "init"], cwd=result.project_path)
+    subprocess.check_call(["git", "init"], cwd=result.project_dir)
 
     # nox check
-    assert subprocess.check_call(["nox"], cwd=result.project_path) == 0
+    assert subprocess.check_call(["nox"], cwd=result.project_dir) == 0
 
-def test_build_yaml(cookies: Cookies) -> None:
+def test_build_yaml(copie: Copie) -> None:
     """Build the documentation and check github actions files
 
     Args:
-        cookies: the cookies to build
+        copie: the copie to build
     """
-    result = cookies.bake()
+    result = copie.copy()
 
     # will raise an error if the file is ill shaped
-    workflows_path = Path(result.project_path)/".github"/"workflows"
+    workflows_path = Path(result.project_dir)/".github"/"workflows"
     data = yaml.safe_load((workflows_path/"unit.yaml").read_text())
     data = yaml.safe_load((workflows_path/"release.yaml").read_text())
 
 
-def test_stub_file(cookies: Cookies, file_regression) -> None:
+def test_stub_file(copie: Copie, file_regression) -> None:
     """Build the documentation and check github actions files
 
     Args:
-        cookies: the cookies to build
+        copie: the copie to build
         file_regression: the file regression fixture
     """
-    result = cookies.bake()
-    subprocess.check_call(["nox", "-s" "stubgen"], cwd=result.project_path)
-    stub_path = Path(result.project_path)/"stubs"/"package_skeleton"/"__init__.pyi"
+    result = copie.copy()
+    subprocess.check_call(["nox", "-s" "stubgen"], cwd=result.project_dir)
+    stub_path = Path(result.project_dir)/"stubs"/"package_skeleton"/"__init__.pyi"
     file_regression.check(stub_path.read_text(), extension=".pyi")
 
 
-def test_update_citation(cookies: Cookies) -> None:
+def test_update_citation(copie: Copie) -> None:
     """Emulate a release to update the release date in the citation file
 
     Args:
-        cookies: the cookies to build
+        copie: the copie to build
     """
-    result = cookies.bake()
-    subprocess.check_call(["nox", "-s", "release-date"], cwd=result.project_path)
+    result = copie.copy()
+    subprocess.check_call(["nox", "-s", "release-date"], cwd=result.project_dir)
 
     current_date = datetime.datetime.now().strftime("%Y-%m-%d")
-    citation_file = Path(result.project_path)/"CITATION.cff"
+    citation_file = Path(result.project_dir)/"CITATION.cff"
     assert f'date-released: "{current_date}"' in citation_file.read_text()
