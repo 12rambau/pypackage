@@ -25,7 +25,7 @@ jobs:
         with:
           branch: copier_update
           create_branch: true
-          commit_message: "bump: new copier template release"
+          commit_message: "bump: template {% raw -%}${{ github.event.inputs.version }}{% endraw %}"
           push_options: "--force"
 
       - name: Create PR
