@@ -27,9 +27,24 @@ jobs:
           RELEASE=$(yq -r "._commit" .copier-answers.yml)
           echo "current=$RELEASE" >> $GITHUB_OUTPUT
           echo "current release: $RELEASE"
-      - name: call dispatch
+      - name: open issue
         if: steps.get_current_version.outputs.current != steps.get_latest_release.outputs.latest
-        uses: benc-uk/workflow-dispatch@v1
+        uses: rishabhgupta/git-action-issue@v2
         with:
-          workflow: pypackage_update.yaml
-          inputs: {% raw -%}'{"version": "${{ steps.get_latest_release.outputs.latest }}" }'{% endraw %}
+          token: {% raw -%}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          title: "Update template to {% raw -%}${{ steps.get_latest_release.outputs.latest }}{% endraw -%}"
+          {% raw -%}body: |
+            The package is based on the ${{ steps.get_cuurent_version.outputs.current }} version of [@12rambau/pypackage](https://github.com/12rambau/pypackage).
+
+            The latest version of the template is ${{ steps.get_latest_release.outputs.latest }}.
+
+            Please consider updating the template to the latest version to include all the latest developments.
+
+            Run the following in your project directory to update the template:
+
+            ```
+            copier --trust --defaults --vsc-ref ${{ steps.get_latest_release.outputs.latest }} update
+            ```
+
+            Then solve merging issues and push back the changes to your main branch.
+          {% endraw %}
