@@ -1,5 +1,10 @@
-Python lib
-==========
+Pypackage
+=========
+
+.. image:: https://img.shields.io/github/v/release/12rambau/pypackage?logo=github&logoColor=white
+   :alt: GitHub release (with filter)
+   :target: https://github.com/12rambau/pypackage/releases
+
 
 The skeleton of a python lib embeding what I like:
 
