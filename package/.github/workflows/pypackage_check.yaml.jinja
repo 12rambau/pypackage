@@ -13,18 +13,23 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: "3.10"
+      - name: install dependencies
+        run: pip install requests
       - name: get latest pypackage release
         id: get_latest_release
         run: |
-          RELEASE_TAG=$(curl -s https://api.github.com/12rambau/pypackage/releases/latest | jq -r '.tag_name')
-          echo "latest=$RELEASE_TAG" >> $GITHUB_OUTPUT
-          echo "latest release: $RELEASE_TAG"
+          import requests
+          release = requests.get('https://api.github.com/repos/12rambau/pypackage/releases').json()[0]["tag_name"]
+          print(f"latest={release}", file="$GITHUB_OUTPUT")
+          print(f"latest release: {release}")
       - name: get current pypackage version
         id: get_current_version
         run: |
-          CURRENT_VERSION=$(grep -Eo "_commit: (\d+\.\d+\.\d+)" copier.yaml | cut -d " " -f 2)
-          echo "current=$CURRENT_VERSION" >> $GITHUB_OUTPUT
-          echo "current release: $CURRENT_VERSION"
+          import yaml
+          from pathlib import Path
+          release = yaml.safe_load(Path(".copier_answers.yml").read_text())["_commit"]
+          print(f"current={release}", file="$GITHUB_OUTPUT")
+          print(f"current release: {release}")
       - name: call dispatch
         if: steps.get_current_version.outputs.current != steps.get_latest_release.outputs.latest
         uses: benc-uk/workflow-dispatch@v1
