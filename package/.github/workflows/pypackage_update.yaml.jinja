@@ -19,13 +19,13 @@ jobs:
       - name: install copier
         run: pip install copier jinja2-time
       - name: update repository
-        run: copier update --trust --vcs-ref {% raw -%}${{ github.event.inputs.version }}{% endraw %}
+        run: copier update --defaults --trust --vcs-ref {% raw -%}${{ github.event.inputs.version }}{% endraw %}
       - name: push the files
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: copier_update
           create_branch: true
-          commit_message: "bump: new copier template release"
+          commit_message: "bump: template {% raw -%}${{ github.event.inputs.version }}{% endraw %}"
           push_options: "--force"
 
       - name: Create PR

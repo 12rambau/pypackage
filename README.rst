@@ -85,3 +85,5 @@ Usage
 #.  Add a token to a new github action env variable ``PYPI_PASSWORD`` from your pypi profile. limit the scope to this repository only.
 
 #.  Start a new release in github and let actions do the rest
+
+#. The generated package will automatically detect new releases of the template and create update PR. To allow this workflow to work, one needs to give "Read and write permissions" to Workflow and Actions in the "Manage access" tab of the repository settings. One should also "Allow GitHub Actions to create an approve pull requests".
