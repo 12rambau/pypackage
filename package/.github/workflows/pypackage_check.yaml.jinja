@@ -18,18 +18,15 @@ jobs:
       - name: get latest pypackage release
         id: get_latest_release
         run: |
-          import requests
-          release = requests.get('https://api.github.com/repos/12rambau/pypackage/releases').json()[0]["tag_name"]
-          print(f"latest={release}", file="$GITHUB_OUTPUT")
-          print(f"latest release: {release}")
+          RELEASE=$(curl -s https://api.github.com/repos/12rambau/pypackage/releases | jq -r '.[0].tag_name')
+          echo "latest=$RELEASE" >> $GITHUB_OUTPUT
+          echo "latest release: $RELEASE"
       - name: get current pypackage version
         id: get_current_version
         run: |
-          import yaml
-          from pathlib import Path
-          release = yaml.safe_load(Path(".copier_answers.yml").read_text())["_commit"]
-          print(f"current={release}", file="$GITHUB_OUTPUT")
-          print(f"current release: {release}")
+          RELEASE=$(yq -r "._commit" .copier-answers.yml)
+          echo "current=$RELEASE" >> $GITHUB_OUTPUT
+          echo "current release: $RELEASE"
       - name: call dispatch
         if: steps.get_current_version.outputs.current != steps.get_latest_release.outputs.latest
         uses: benc-uk/workflow-dispatch@v1
