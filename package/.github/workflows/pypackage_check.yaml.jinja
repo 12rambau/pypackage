@@ -43,7 +43,7 @@ jobs:
             Run the following code in your project directory to update the template:
 
             ```
-            copier --trust --defaults --vsc-ref ${{ steps.get_latest_release.outputs.latest }} update
+            copier update --trust --defaults --vcs-ref ${{ steps.get_latest_release.outputs.latest }}
             ```
 
             After solving the merging issues you can push back the changes to your main branch.
