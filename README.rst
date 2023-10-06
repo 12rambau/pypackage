@@ -18,6 +18,11 @@ The skeleton of a python lib embeding what I like:
 - ready to publish on `readthedocs <https://readthedocs.org/>`__
 - ready to link to `codecov <https://app.codecov.io>`__
 
+Demonstration
+-------------
+
+The package end result is demonstrated in the `pypackage-skeleton <https://github.com/12rambau/pypackage-skeleton>`__ repository.
+
 Usage
 -----
 
