@@ -12,7 +12,7 @@ The skeleton of a python lib embeding what I like:
 - nox unit tests (doc, `pytest <https://docs.pytest.org>`__, `mypy <https://mypy.readthedocs.io>`__)
 - a documentation structure based on `Sphinx <https://www.sphinx-doc.org>`__ using the `pydata-sphinx-theme <https://pydata-sphinx-theme.readthedocs.io>`__
 - a complete github folder (README, LICENSE, etc...)
-- a n automated citation file
+- an automated citation file
 - github actions (test, coverage, mypy, lint)
 - ready to publish on `pipy <https://pypi.org/>`__
 - ready to publish on `readthedocs <https://readthedocs.org/>`__
