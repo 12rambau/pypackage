@@ -46,5 +46,8 @@ jobs:
             copier update --trust --defaults --vcs-ref ${{ steps.get_latest_release.outputs.latest }}
             ```
 
+            > **Note**
+            > You may need to reinstall ``copier`` and ``jinja2-time`` if they are not available in your environment.
+
             After solving the merging issues you can push back the changes to your main branch.
           {% endraw %}
