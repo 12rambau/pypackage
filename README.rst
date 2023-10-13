@@ -37,12 +37,11 @@ Usage
 #.  In your local computer start the project by running the following code. Set the same names as in the github repository.
 
     .. note::
-
-        Install ``copier`` if necessary:
+        You will need to install 2 extra python libs if it's not already done, ``copier`` and ``jinja2-time``.
 
         .. code-block:: console
 
-            pip install copier
+            pip install copier jinja2-time
 
     .. code-block:: console
 
