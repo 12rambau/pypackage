@@ -45,7 +45,7 @@ Usage
 
     .. code-block:: console
 
-        copier copy gh:12rambau/pypackage <python-project>
+        copier copy --trust gh:12rambau/pypackage <python-project>
 
 #.  Go to the folder and init the git project:
 
