@@ -46,7 +46,7 @@ short_description:
 
 creation_year:
   type: str
-  default: {% now 'utc', '%Y' %}
+  default: "{% now 'utc', '%Y' %}"
   help: "The creation date of your package, don't change unless it's a manual update"
 
 # copier internal parameters

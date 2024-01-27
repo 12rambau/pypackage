@@ -14,7 +14,7 @@ def test(session):
         "copier",
         "jinja2-time",
         "pre-commit",
-        "pytest-copie>=0.1.2",
+        "pytest-copie>=0.1.6", # force use HEAD in vcs-ref 
         "pyyaml",
         "pytest-regressions",
     )
