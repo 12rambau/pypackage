@@ -44,6 +44,11 @@ short_description:
   default: "the skeleton of a python lib with everything I like"
   help: "A short description of the project"
 
+creation_year:
+  type: str
+  default: {% now 'utc', '%Y' %}
+  help: "The creation date of your package, don't change unless it's a manual update"
+
 # copier internal parameters
 _subdirectory: "package"
 _jinja_extensions: [jinja2_time.TimeExtension]
