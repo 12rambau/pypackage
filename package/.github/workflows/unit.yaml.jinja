@@ -63,7 +63,7 @@ jobs:
       - name: Install nox
         run: pip install nox
       - name: test with pytest
-        run: {% raw -%}nox -s ci-test -- "Python {{ matrix.python-version }} on {{ matrix.os }} platform"{% endraw %}
+        run: nox -s ci-test
 
   coverage:
     needs: [build]
