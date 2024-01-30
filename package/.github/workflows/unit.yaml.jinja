@@ -63,7 +63,7 @@ jobs:
       - name: Install nox
         run: pip install nox
       - name: test with pytest
-        run: nox -s test
+        run: nox -s ci-test
 
   coverage:
     needs: [build]
