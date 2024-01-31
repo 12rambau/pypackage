@@ -1,0 +1,56 @@
+"""Demonstration of a custom role for sphinx.
+
+This role should be deleted when starting a new extention but it gives an overview
+of the different steps to follow to create a new role. It is also used to demonstrate the
+documentation/test workflows.
+
+.. note::
+
+    We only coded a html output for this role.
+"""
+from __future__ import annotations
+
+from typing import List, Optional, Tuple
+
+from docutils import nodes
+from sphinx.util import logging
+from sphinx.util.docutils import SphinxRole, SphinxTranslator
+
+logger = logging.getLogger(__name__)
+
+class demo_node(nodes.General, nodes.Element):
+    """the demo node."""
+    pass
+
+class DemoRole(SphinxRole):
+    """The demo sphinxrole interpreter."""
+
+    def run(self) -> Tuple[List[nodes.Node], List[str]]:
+        """Setup the role in the builder context."""
+        return [demo_node(text=self.text, location=self.get_source_info())], []
+
+def visit_icon_node_unsuported(translator: SphinxTranslator, node: demo_node) -> None:
+    """Raise error when the requested output is not supported."""
+    msg = "Unsupported output format (node skipped)"
+    logger.warning(msg, location=node.get("location"))
+    raise nodes.SkipNode
+
+
+def visit_demo_node_html(translator: SphinxTranslator, node: demo_node) -> None:
+    """Visit the html output."""
+    translator.body.append(f'<b class="demo">{node["text"]}</b>')
+    return
+
+def depart_demo_node_html(translator: SphinxTranslator, node: demo_node) -> None:
+    """depart from the html output."""
+    return
+
+
+_NODE_VISITORS = {
+    "html": (visit_demo_node_html, depart_demo_node_html),
+    "latex": (visit_icon_node_unsuported, None),
+    "man": (visit_icon_node_unsuported, None),
+    "texinfo": (visit_icon_node_unsuported, None),
+    "text": (visit_icon_node_unsuported, None),
+    "epub": (visit_icon_node_unsuported, None),
+}
