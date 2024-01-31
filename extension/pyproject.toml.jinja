@@ -96,7 +96,7 @@ docstring-quotes = "double"
 convention = "google"
 
 [tool.coverage.run]
-source = ["{{ project_slug }}"]
+source = ["sphinxcontrib/{{ project_slug }}"]
 
 [tool.doc8]
 ignore = ["D001"] # we follow a 1 line = 1 paragraph style
@@ -110,3 +110,5 @@ warn_redundant_casts = true
 
 [tool.licensecheck]
 using = "PEP631"
+
+[tool.codespell]

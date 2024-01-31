@@ -50,7 +50,7 @@ creation_year:
   help: "The creation date of your package, don't change unless it's a manual update"
 
 # copier internal parameters
-_subdirectory: "extention"
+_subdirectory: "extension"
 _jinja_extensions: [jinja2_time.TimeExtension]
 _message_before_copy: |
   " ___________ _   _ _____ _   _ __   __      _______   _______ _____ _   _ _____ _____ _____ _   _ "
