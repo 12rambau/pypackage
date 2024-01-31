@@ -8,15 +8,6 @@ import nox
 @nox.session(reuse_venv=True)
 def test(session):
     """Run all the test using the environment varialbe of the running machine."""
-    session.install(
-        "pytest",
-        "nox",
-        "copier",
-        "jinja2-time",
-        "pre-commit",
-        "pytest-copie>=0.1.6", # force use HEAD in vcs-ref 
-        "pyyaml",
-        "pytest-regressions",
-    )
+    session.install("-r", "requirements.txt")
     test_files = session.posargs or ["tests"]
     session.run("pytest", "--color=yes", *test_files)
