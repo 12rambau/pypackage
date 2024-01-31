@@ -52,7 +52,7 @@ def docs(session):
 def mypy(session):
     """Run a mypy check of the lib."""
     session.install("mypy")
-    test_files = session.posargs or ["{{ project_slug }}"]
+    test_files = session.posargs or ["sphinxcontrib/{{ project_slug }}"]
     session.run("mypy", *test_files)
 
 
@@ -60,7 +60,7 @@ def mypy(session):
 def stubgen(session):
     """Generate stub files for the lib but requires human attention before merge."""
     session.install("mypy")
-    package = session.posargs or ["{{ project_slug }}"]
+    package = session.posargs or ["sphinxcontrib/{{ project_slug }}"]
     session.run("stubgen", "-p", package[0], "-o", "stubs", "--include-private")
 
 
