@@ -12,7 +12,7 @@ github_repo_name:
 project_slug:
   type: str
   default: "{{ project_name.lower().replace(' ', '_').replace('-', '_') }}"
-  help: "The slug that will be used to name the extention package"
+  help: "The slug that will be used to name the extension package"
 
 github_user:
   type: str
@@ -36,7 +36,7 @@ author_email:
 
 short_description:
   type: str
-  default: "the skeleton of a sphinx extention in the sphinxcontrib community"
+  default: "the skeleton of a sphinx extension in the sphinxcontrib community"
   help: "A short description of the extension"
 
 creation_year:
