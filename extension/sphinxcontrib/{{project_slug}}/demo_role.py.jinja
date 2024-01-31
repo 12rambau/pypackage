@@ -36,14 +36,18 @@ def visit_icon_node_unsuported(translator: SphinxTranslator, node: demo_node) ->
     raise nodes.SkipNode
 
 
-def visit_icon_node_html(translator: SphinxTranslator, node: demo_node) -> None:
+def visit_demo_node_html(translator: SphinxTranslator, node: demo_node) -> None:
     """Visit the html output."""
-    translator.body.append(f"<b>{node['text']}</b>")
+    translator.body.append(f'<b class="demo">{node["text"]}</b>')
+    return
+
+def depart_demo_node_html(translator: SphinxTranslator, node: demo_node) -> None:
+    """depart from the html output."""
     return
 
 
 _NODE_VISITORS = {
-    "html": (visit_icon_node_html, None),
+    "html": (visit_demo_node_html, depart_demo_node_html),
     "latex": (visit_icon_node_unsuported, None),
     "man": (visit_icon_node_unsuported, None),
     "texinfo": (visit_icon_node_unsuported, None),

@@ -1,7 +1,7 @@
 # questions
 project_name:
   typr: str
-  default: "Extension"
+  default: "Skeleton"
   help: "The name of the extension."
 
 github_repo_name:
