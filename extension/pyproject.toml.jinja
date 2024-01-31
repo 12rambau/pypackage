@@ -72,7 +72,6 @@ version_files = [
     "pyproject.toml:version",
     "{{ project_slug }}/__init__.py:__version__",
     "docs/conf.py:release",
-    "CITATION.cff:version"
 ]
 
 [tool.pytest.ini_options]
@@ -97,7 +96,7 @@ docstring-quotes = "double"
 convention = "google"
 
 [tool.coverage.run]
-source = ["{{ project_slug }}"]
+source = ["sphinxcontrib/{{ project_slug }}"]
 
 [tool.doc8]
 ignore = ["D001"] # we follow a 1 line = 1 paragraph style
@@ -111,3 +110,5 @@ warn_redundant_casts = true
 
 [tool.licensecheck]
 using = "PEP631"
+
+[tool.codespell]

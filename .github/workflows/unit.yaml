@@ -30,4 +30,3 @@ jobs:
         run: python -m pip install nox
       - name: test the repository
         run: nox
-
