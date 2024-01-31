@@ -11,11 +11,6 @@ Pypackage
    :alt: GitHub Workflow Status (with event)
    :target: https://github.com/12rambau/pypackage/actions/workflows/unit.yaml
 
-.. image:: https://img.shields.io/readthedocs/12rambau-pypackage?logo=readthedocs&logoColor=white
-   :alt: Read the Docs
-   :target: https://12rambau-pypackage.readthedocs.io/en/latest/
-
-
 The skeleton of a python lib embedding what I like:
 
 - pre-commit hooks (`prettier <https://prettier.io/>`__, `ruff <https://beta.ruff.rs/docs/>`__, `black <https://black.readthedocs.io>`__)
