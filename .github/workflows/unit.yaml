@@ -7,6 +7,9 @@ on:
       - main
   pull_request:
 
+env:
+  FORCE_COLOR: 1
+
 jobs:
   build:
     strategy:
@@ -30,5 +33,3 @@ jobs:
         run: python -m pip install nox
       - name: test the repository
         run: nox
-        env:
-          FORCE_COLOR: 1
