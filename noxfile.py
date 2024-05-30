@@ -14,9 +14,9 @@ def test(session):
         "copier",
         "jinja2-time",
         "pre-commit",
-        "pytest-copie>=0.1.6", # force use HEAD in vcs-ref 
+        "pytest-copie>=0.1.6", # force use HEAD in vcs-ref
         "pyyaml",
         "pytest-regressions",
     )
     test_files = session.posargs or ["tests"]
-    session.run("pytest", "--color=yes", *test_files)
+    session.run("pytest", *test_files)
