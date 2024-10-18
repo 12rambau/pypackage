@@ -28,17 +28,11 @@ repos:
       - id: ruff-format
         stages: [pre-commit]
 
-  - repo: https://github.com/PyCQA/doc8
-    rev: "v1.1.1"
+  - repo: https://github.com/sphinx-contrib/sphinx-lint
+    rev: "v1.0.0"
     hooks:
-      - id: doc8
+      - id: sphinx-lint
         stages: [pre-commit]
-
-#  - repo: https://github.com/FHPythonUtils/LicenseCheck
-#    rev: "2023.5.1"
-#    hooks:
-#      - id: licensecheck
-#        stages: [pre-commit]
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.4

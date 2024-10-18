@@ -96,15 +96,9 @@ convention = "google"
 [tool.coverage.run]
 source = ["{{ project_slug }}"]
 
-[tool.doc8]
-ignore = ["D001"] # we follow a 1 line = 1 paragraph style
-
 [tool.mypy]
 scripts_are_modules = true
 ignore_missing_imports = true
 install_types = true
 non_interactive = true
 warn_redundant_casts = true
-
-[tool.licensecheck]
-using = "PEP631"
