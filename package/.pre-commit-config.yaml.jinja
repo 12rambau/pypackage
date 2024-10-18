@@ -1,12 +1,6 @@
 default_install_hook_types: [pre-commit, commit-msg]
 
 repos:
-  - repo: "https://github.com/psf/black"
-    rev: "22.3.0"
-    hooks:
-      - id: black
-        stages: [pre-commit]
-
   - repo: "https://github.com/commitizen-tools/commitizen"
     rev: "v2.18.0"
     hooks:
@@ -27,9 +21,11 @@ repos:
         exclude: tests\/test_.+\.
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: "v0.0.215"
+    rev: "v0.7.0"
     hooks:
       - id: ruff
+        stages: [pre-commit]
+      - id: ruff-format
         stages: [pre-commit]
 
   - repo: https://github.com/PyCQA/doc8
@@ -38,11 +34,11 @@ repos:
       - id: doc8
         stages: [pre-commit]
 
-  - repo: https://github.com/FHPythonUtils/LicenseCheck
-    rev: "2023.5.1"
-    hooks:
-      - id: licensecheck
-        stages: [pre-commit]
+#  - repo: https://github.com/FHPythonUtils/LicenseCheck
+#    rev: "2023.5.1"
+#    hooks:
+#      - id: licensecheck
+#        stages: [pre-commit]
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.4
