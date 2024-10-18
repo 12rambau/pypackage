@@ -15,7 +15,7 @@ Pypackage
 
 |release| |workflow| |docs|
 
-The skeleton of a python lib embeding what I like:
+The skeleton of a python lib embedding what I like:
 
 - pre-commit hooks (`prettier <https://prettier.io/>`__, `ruff <https://beta.ruff.rs/docs/>`__, `black <https://black.readthedocs.io>`__)
 - nox unit tests (doc, `pytest <https://docs.pytest.org>`__, `mypy <https://mypy.readthedocs.io>`__)
