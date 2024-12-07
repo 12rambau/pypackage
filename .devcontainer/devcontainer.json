@@ -4,5 +4,5 @@
   "features": {
     "ghcr.io/devcontainers-contrib/features/nox:2": {}
   },
-  "postCreateCommand": "python -m pip install commitizen"
+  "postCreateCommand": "python -m pip install commitizen uv"
 }
