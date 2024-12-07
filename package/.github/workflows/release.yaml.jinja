@@ -18,9 +18,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.11"
       - name: Install dependencies
-        run: pip install twine build nox
+        run: pip install twine build nox[uv]
       - name: update citation date
         run: nox -s release-date
       - name: Build and publish

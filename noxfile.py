@@ -6,7 +6,7 @@ The nox run are build in isolated environment that will be stored in .nox. to fo
 import nox
 
 
-@nox.session(reuse_venv=True)
+@nox.session(reuse_venv=True, venv_backend="uv")
 def test(session):
     """Run all the test using the environment variable of the running machine."""
     session.install(
