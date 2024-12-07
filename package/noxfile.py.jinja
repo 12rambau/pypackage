@@ -27,7 +27,6 @@ def test(session):
 def ci_test(session):
     """Run all the test and report coverage in xml."""
     session.install(".[test]")
-    name = session.posargs[0] if session.posargs else "default"
     session.run("pytest", "--cov", "--cov-report=xml")
 
 
