@@ -1,7 +1,7 @@
-  Update package
-  ==============
+Update package
+==============
 
-  .. note::
+.. note::
 
     You can get the same information by running the "template update check" action
     From your pypackage based repository.
