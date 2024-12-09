@@ -13,7 +13,7 @@ The skeleton of a python lib embedding what I like:
 - ready to publish on `readthedocs <https://readthedocs.org/>`__
 - ready to link to `codecov <https://app.codecov.io>`__
 
-.. toc:: Table of content
+.. toctree::
 
     usage
     update
