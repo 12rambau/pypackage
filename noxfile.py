@@ -21,3 +21,9 @@ def test(session):
     )
     test_files = session.posargs or ["tests"]
     session.run("pytest", *test_files)
+
+@nox.session(reuse_venv=True, venv_backend="uv")
+def docs(session):
+    """Build the documentation."""
+    session.install("-r", "docs/requirements.txt")
+    session.run("sphinx-build", "-v", "-b", "html", "docs", f"docs/_build/html")
