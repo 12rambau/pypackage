@@ -23,13 +23,13 @@ Link Existing repository
 
     .. code-block:: console
 
-        copier copy --trust gh:12rambau/pypackage <python-project>
+        copier copy --trust gh:12rambau/pypackage <your repository>
 
 #.  Once done copy the `.git` folder from the legacy repository to the new one
 
     .. code-block:: console
 
-        cp -r <your repository>_template/.git <your repository>/.git
+        cp -r <your repository>_legacy/.git <your repository>/.git
 
 #.  Now both repositories are synchronized.
     You can make a first commit called "build: linked to pypackage copier template" and check the diff with the existing state of your repository.
