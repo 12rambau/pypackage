@@ -30,7 +30,7 @@ The skeleton of a python lib embedding what I like:
 Usage
 -----
 
-Follow the instructions from the `onilne documentation <https://12rambau-pypackage.readthedocs.io/en/latest/>`__
+Follow the instructions from the `online documentation <https://12rambau-pypackage.readthedocs.io/en/latest/>`__
 
 Demonstration
 -------------
