@@ -7,7 +7,7 @@ import nox
 
 
 @nox.session(reuse_venv=True, venv_backend="uv")
-def test(session):
+def test(session: nox.Session):
     """Run all the test using the environment variable of the running machine."""
     session.install(
         "pytest",
@@ -23,7 +23,7 @@ def test(session):
     session.run("pytest", *test_files)
 
 @nox.session(reuse_venv=True, venv_backend="uv")
-def docs(session):
+def docs(session: nox.Session):
     """Build the documentation."""
     session.install("-r", "docs/requirements.txt")
     session.run("sphinx-build", "-v", "-b", "html", "docs", f"docs/_build/html")
