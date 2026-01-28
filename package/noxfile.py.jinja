@@ -21,13 +21,13 @@ def test(session: nox.Session):
     """Run the selected tests and report coverage in html."""
     session.install("-e", ".[test]")
     test_files = session.posargs or ["tests"]
-    session.run("pytest", "--cov", "--cov-report=html", *test_files)
+    session.run("pytest", "--cov", "--cov-report=html", "-n auto", *test_files)
 
 @nox.session(reuse_venv=True, name="ci-test", venv_backend="uv")
 def ci_test(session: nox.Session):
     """Run all the test and report coverage in xml."""
     session.install("-e", ".[test]")
-    session.run("pytest", "--cov", "--cov-report=xml")
+    session.run("pytest", "--cov", "--cov-report=xml", "-n auto")
 
 
 @nox.session(reuse_venv=True, name="dead-fixtures", venv_backend="uv")
